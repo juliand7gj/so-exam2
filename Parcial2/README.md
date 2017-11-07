@@ -7,7 +7,7 @@
 
 **Nombre:** Julián David González Jiménez  
 **Código:** A00315288  
-**Link:**   
+**URL:** https://github.com/juliand7gj/so-exam2/tree/A00315288/Parcial2     
 
 ### Objetivos
 * Comprender los fundamentos que dan origen a las tecnologías de contenedores virtuales
@@ -42,8 +42,80 @@ El segundo parcial del curso sistemas operativos trata sobre el manejo de namesp
 3. 
 * Las pruebas se realizaran sobre un solo núcleo de la CPU
 
+![][1]
+
+* Se deben ejecutar dos procesos  
+Para este punto, cree un proceso el cual se va a correr dos veces en la maquina por medio de diferentes servicios.
+
+![][2]  
+
+Se le deben dar los permisos necesisarios a este proceso. 
+
+* Cada proceso debe poder acceder solo al 50% de la CPU    
+
+Se crean los dos servicios en el cual cada uno podrá acceder al 50% de la CPU.
+
+![][3]  
+
+Ahora, se debe ejecutar el comando: systemctl daemon-reload, y por siguiente, se deben iniciar los servicios que fueron creados  anteriormente.    
+
+![][4]  
+
+Se puede observar que los dos servicios están activos y corriendo.  
+Con el comando top se pueden ver los procesos activos, aquí vamos a ver los dos servicios con los respectivos porcentajes de CPU que se les otorgo.    
+
+![][5]    
+
+* Cuando uno de los procesos se cancela, el que continua ejecutándose no debe acceder a mas del 50% de la CPU  
+
+Para observar, que si se cancela uno de los dos procesos, el que queda activo no debe acceder a mas del 50% de la CPU, se va a matar el proceso 2488, por lo tanto, el proceso 2510 debe quedar con 50% de la CPU.  
+
+![][6]  
+
+4. Para este punto, se van a utilizar los mismos servicios del punto anterior.  
+
+* Las pruebas se realizaran sobre un solo núcleo de la CPU. Esto ya se logró en el punto anterior.  
+
+* Se deben ejecutar dos procesos. Se utilizará el proceso del punto anterior.  
+
+* Uno de los procesos tendrá el 25% de la CPU mientras que el otro tendrá el 75% de la CPU  
+Solo se cambiará la línea del CPUQuotas del .service, por CPUShares y para darle a cada uno su respectivo porcentaje, se hace con una relacion de 1 a mil, es decir, si se le quiere dar el 25% se debe colocar 250, y si se quiere darle el 75% se coloca 750.  
+
+![][7]  
+
+Ahora, se inician los procesos nuevamente para que queden con la nueva configuración asignada.    
+
+![][8]  
+
+* Cuando uno de los procesos se cancela, el que continua ejecutándose debe poder llegar al 100% de la CPU  
+
+Se puede observar, que el uno de los servicios tiene el 25% de la CPU y el otro el 75%.  
+
+![][9]   
+
+Ahora se matará el proceso 2510 y el proceso 2542 quedá con el 100% de la CPU.  
+
+![][10]  
+
+5. 
+* CPUQuota: Toma un valor porcentual, con el sufijo "%". El porcentaje especifica cuánto tiempo de CPU la unidad debe obtener al máximo, en relación con el tiempo total de CPU disponible en una CPU.  
+
+* CPUShares: Asigna el peso compartido de tiempo de CPU especificado a los procesos ejecutados. Estas opciones toman un valor entero y controlan el atributo del grupo de control "cpu.shares". El rango permitido es de 2 a 262144. El valor predeterminado es 1024.  
+
+Los dos grupos de control trabajan de forma diferente, el CPUQuota intenta limitar el uso de CPU, dandole el limite que puede tener, mientras que CPUShares establece el comportamiento de cada proceso con respecto a los recursos cuando los deben compartir con otros procesos. Por estos motivos, dependiendo de las ocaciones es mejor usar uno o el otro. Los casos son los siguientes: cuando se quiere que un proceso tenga un porcentaje de CPU fijo sin importar los demás procesos, se debe utilizar CPUQuotas. Cuando se quiere darle pesos indicados a procesos para que trabajen entre si, dando importancia cuando se cancela o se agregan mas, se debe utilizar CPUShares.  
 
 ### Referencias
 https://github.com/ICESI/so-containers
+https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html
 
+[1]: 1nucleo.JPG
+[2]: crearProceso.JPG
+[3]: crearServicio2.JPG
+[4]: status.JPG
+[5]: top.JPG
+[6]: topkill2488.JPG
+[7]: catshares.JPG
+[8]: starthares.JPG
+[9]: topshares.JPG
+[10]: top2510shares.JPG
 

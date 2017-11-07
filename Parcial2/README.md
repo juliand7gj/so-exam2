@@ -40,7 +40,10 @@ El segundo parcial del curso sistemas operativos trata sobre el manejo de namesp
 ### Desarrollo
 
 3. 
+* Las pruebas se realizaran sobre un solo núcleo de la CPU
 
 
 ### Referencias
 https://github.com/ICESI/so-containers
+
+

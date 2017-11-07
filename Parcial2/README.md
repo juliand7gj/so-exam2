@@ -105,7 +105,7 @@ Ahora se matará el proceso 2510 y el proceso 2542 quedá con el 100% de la CPU.
 Los dos grupos de control trabajan de forma diferente, el CPUQuota intenta limitar el uso de CPU, dandole el limite que puede tener, mientras que CPUShares establece el comportamiento de cada proceso con respecto a los recursos cuando los deben compartir con otros procesos. Por estos motivos, dependiendo de las ocaciones es mejor usar uno o el otro. Los casos son los siguientes: cuando se quiere que un proceso tenga un porcentaje de CPU fijo sin importar los demás procesos, se debe utilizar CPUQuotas. Cuando se quiere darle pesos indicados a procesos para que trabajen entre si, dando importancia cuando se cancela o se agregan mas, se debe utilizar CPUShares.  
 
 ### Referencias
-https://github.com/ICESI/so-containers
+https://github.com/ICESI/so-containers  
 https://www.freedesktop.org/software/systemd/man/systemd.resource-control.html
 
 [1]: 1nucleo.JPG

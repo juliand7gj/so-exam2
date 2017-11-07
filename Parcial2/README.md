@@ -5,6 +5,10 @@
 **Tema:** Namespaces, CGroups, LXC
 **Correo:** daniel.barragan at correo.icesi.edu.co
 
+**Nombre:** Julián David González Jiménez  
+**Código:** A00315288  
+**Link:**   
+
 ### Objetivos
 * Comprender los fundamentos que dan origen a las tecnologías de contenedores virtuales
 * Conocer y emplear funcionalidades del sistema operativo para asignar recursos a procesos
@@ -32,6 +36,11 @@ El segundo parcial del curso sistemas operativos trata sobre el manejo de namesp
  * Cuando uno de los procesos se cancela, el que continua ejecutándose debe poder llegar al 100% de la CPU
 5. Por medio de las evidencias obtenidas en los puntos anteriores y de fuentes de consulta en Internet, elabore las definiciones para los grupos de control CPUQuota y CPUShares, además concluya acerca de cuando es preferible usar un recurso de control sobre otro (20%)
 6. El informe debe ser entregado en formato pdf a través del moodle y el informe en formato README.md debe ser subido a un repositorio de github. El repositorio de github debe ser un fork de https://github.com/ICESI-Training/so-exam2 y para la entrega deberá hacer un Pull Request (PR) respetando la estructura definida. El código fuente y la url de github deben incluirse en el informe (10%)  
+
+### Desarrollo
+
+3. 
+
 
 ### Referencias
 https://github.com/ICESI/so-containers
